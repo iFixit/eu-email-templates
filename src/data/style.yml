@@ -3,11 +3,11 @@ style:
     mobile: 400px
   max-width: 650px
   color:
-    black: '#464646' # rgb(70,70,70)
+    black: '#212426' # rgb(33,36,38)
     white: '#ffffff' # rgb(255,255,255)
     grey: '#e1e1e1' # rgb(225,225,225)
-    grey-dark: '#767676' # rgb(118,118,118)
-    primary: '#1A90C6' # rgb(26,144,198)
-    red-light: '#ffe6e6' # rgb(255,230,230)
-    red: '#fa4646' # rgb(250,70,70)
-    red-dark: '#d21919' # rgb(210,25,25)
+    grey-dark: '#828D96' # rgb(130,141,150)
+    primary: '#1975F1' # rgb(25,117,241)
+    red-light: '#FFEDED' # rgb(255,237,237)
+    red: '#F34E46' # rgb(243,78,70)
+    red-dark: '#D93531' # rgb(217,53,49)
