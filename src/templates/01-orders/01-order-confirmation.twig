@@ -16,16 +16,6 @@
 {% endblock %}
 {# title - end #}
 
-{# salution - start test #}
-{% block salution %}
-  {% verbatim %}
-    {% capture salution %} Hi {{ customer.first_name }}, {% endcapture %}
-  {% endverbatim %}
-
-  {{ parent() }}
-{% endblock %}
-{# salution - end #}
-
 {# preview - start #}
 {% block preview %}
   {% verbatim %}
@@ -66,7 +56,6 @@
           font-size="16px"
           line-height="1.7"
           color="{{ style.color['grey-dark'] }}"
-          align="center"
         >
           <strong>Delivery information:</strong> {% verbatim %}{{ delivery_instructions }}{% endverbatim %}
         </mj-text>
