@@ -5,9 +5,10 @@
         color="{{ style.color['grey-dark'] }}"
         font-size="16px"
         padding-bottom="20px"
+        align="center"
       >
         {% block topline %}
-          {{ topline | default('ORDER {{ name }}') }}
+          {{ topline | default("You decided to bust the isolation blues by fixing something—that's great! Inspire others to do so, too, and join our #FixAtHome challenge on Twitter and Instagram.") }}
         {% endblock %}
       </mj-text>
     {% endblock %}

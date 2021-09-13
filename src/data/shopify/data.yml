@@ -79,7 +79,7 @@ reserve_inventory_until: 2020-11-13 18:50:18 +0100
 
 # customer
 customer:
-  name: John Smith
+  name: John Doe
   first_name: John
   email: john@test.com
   account_activation_url: /
@@ -118,22 +118,22 @@ shipping_address:
 
 # shop
 shop:
-  email_logo_url: https://cdn.shopify.com/shopifycloud/shopify/assets/mailer/merchant/shopify_logo-ab8bfbd03d685aa04a8db0c119c5cbee279b5f9bd32a26f9ad3df0a96d9b7f83.png
+  email_logo_url: https://cdn.filestackcontent.com/api/file/0kJDlap6QSJRJFmmaVCw/convert?fit=max&w=480
   email_logo_width: 150
   email_accent_color: '#1A90C6'
-  name: My Shopify Store
+  name: iFixit Europe
   email: contact@shopify.com
-  url: /
+  url: https://eustore.ifixit.com/
   permanent_domain: /
 
 # location
 location:
-  name: Example Shop
-  address1: 34 Example Street
-  address2: Next to example
-  city: Ottawa
-  province: Ontario
-  zip: K1N5T5
+  name: iFixit GmbH
+  address1: Tränkestr. 7
+  address2: 
+  city: Stuttgart
+  province: Germany
+  zip: 70597
 
 # fulfillment
 fulfillment:

@@ -9,22 +9,12 @@
 {# title - start #}
 {% block title %}
   {% verbatim %}
-    {% capture title %} Order Confirmation {% endcapture %}
+    {% capture title %} Bestellbestätigung {% endcapture %}
   {% endverbatim %}
 
   {{ parent() }}
 {% endblock %}
 {# title - end #}
-
-{# salution - start test #}
-{% block salution %}
-  {% verbatim %}
-    {% capture salution %} Hi {{ customer.first_name }}, {% endcapture %}
-  {% endverbatim %}
-
-  {{ parent() }}
-{% endblock %}
-{# salution - end #}
 
 {# preview - start #}
 {% block preview %}
@@ -35,9 +25,9 @@
             {% when 'pick-up' %}
               You’ll receive an email when your order is ready for pickup.
             {% when 'local' %}
-              we're getting your order ready for delivery.
+              Hi {{ customer.first_name }}, we're getting your order ready for delivery.
             {% else %}
-              we're getting your order ready to be shipped. We will notify you when it has been sent.
+              Hi {{ customer.first_name }}, we're getting your order ready to be shipped. We will notify you when it has been sent.
           {% endcase %}
         {% endif %}
     {% endcapture %}
@@ -66,7 +56,6 @@
           font-size="16px"
           line-height="1.7"
           color="{{ style.color['grey-dark'] }}"
-          align="center"
         >
           <strong>Delivery information:</strong> {% verbatim %}{{ delivery_instructions }}{% endverbatim %}
         </mj-text>
@@ -88,7 +77,7 @@
     {% include '@components::local/actions.twig' with {
       primary: {
         url: '{{ order_status_url }}',
-        text: 'View order'
+        text: 'View your order'
       }
     } %}
 
