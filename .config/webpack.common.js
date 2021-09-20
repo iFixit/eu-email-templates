@@ -76,11 +76,11 @@ module.exports = {
                 where: (input, argument) => input.find(el => el === argument),
                 money: input => {
                   const str = String(input)
-                  return `$${str.substring(0, str.length - 2)}.${str.substring(str.length - 2)}`
+                  return `€${str.substring(0, str.length - 2)}.${str.substring(str.length - 2)} EUR`
                 },
                 money_with_currency: input => {
                   const str = String(input)
-                  return `$${str.substring(0, str.length - 2)}.${str.substring(str.length - 2)} USD`
+                  return `€${str.substring(0, str.length - 2)}.${str.substring(str.length - 2)} EUR`
                 },
                 money_without_trailing_zeros: input => `$${String(input).slice(0, -2)}`,
                 shopify_asset_url: input => `${server}/assets/${input}`,
