@@ -1,132 +1,3 @@
-{% block headline_outer %}
-  {% include '@components::local/headline.twig' with {
-    headline: headline | default('Customer information')
-  } %}
-{% endblock %}
-
-{% block shipping_address_outer %}
-  {% verbatim %}
-    <mj-raw>
-      {% if requires_shipping and shipping_address %}
-    </mj-raw>
-  {% endverbatim %}
-
-    <mj-section padding="{{ padding | default('0 0 30px') }}">
-      <mj-column>
-          <mj-text
-            font-size="16px"
-            font-weight="500"
-            color="{{ style.color['grey-dark'] }}"
-            padding-bottom="5px"
-          >
-            {% block shipping_address_headline %}
-              {{ shipping_address_headline | default('Shipping address') }}
-            {% endblock %}
-          </mj-text>
-
-          <mj-text
-            font-size="16px"
-            line-height="1.7"
-            color="{{ style.color['grey-dark'] }}"
-          >
-            {% block shipping_address %}
-              {% verbatim %}
-                {{ shipping_address | format_address }}
-              {% endverbatim %}
-            {% endblock %}
-          </mj-text>
-      </mj-column>
-    </mj-section>
-
-  {% verbatim %}
-    <mj-raw>
-      {% endif %}
-    </mj-raw>
-  {% endverbatim %}
-{% endblock %}
-
-{% block billing_address_outer %}
-  {% verbatim %}
-    <mj-raw>
-      {% if billing_address %}
-    </mj-raw>
-  {% endverbatim %}
-
-    <mj-section padding-bottom="30px">
-      <mj-column>
-          <mj-text
-            font-size="16px"
-            font-weight="500"
-            color="{{ style.color['grey-dark'] }}"
-            padding-bottom="5px"
-          >
-            {% block billing_address_headline %}
-              {{ billing_address_headline | default('Billing address') }}
-            {% endblock %}
-          </mj-text>
-
-          <mj-text
-            font-size="16px"
-            line-height="1.7"
-            color="{{ style.color['grey-dark'] }}"
-          >
-            {% block billing_address %}
-              {% verbatim %}
-                {{ billing_address | format_address }}
-              {% endverbatim %}
-            {% endblock %}
-          </mj-text>
-      </mj-column>
-    </mj-section>
-
-  {% verbatim %}
-    <mj-raw>
-      {% endif %}
-    </mj-raw>
-  {% endverbatim %}
-{% endblock %}
-
-{% block shipping_method_outer %}
-  {% verbatim %}
-    <mj-raw>
-      {% if requires_shipping and shipping_address %}
-    </mj-raw>
-  {% endverbatim %}
-
-    <mj-section padding-bottom="30px">
-      <mj-column>
-          <mj-text
-            font-size="16px"
-            font-weight="500"
-            color="{{ style.color['grey-dark'] }}"
-            padding-bottom="5px"
-          >
-            {% block shipping_method_headline %}
-              {{ shipping_method_headline | default('Shipping method') }}
-            {% endblock %}
-          </mj-text>
-
-          <mj-text
-            font-size="16px"
-            line-height="1.7"
-            color="{{ style.color['grey-dark'] }}"
-          >
-            {% block shipping_method %}
-              {% verbatim %}
-                {{ shipping_method.title }}
-              {% endverbatim %}
-            {% endblock %}
-          </mj-text>
-      </mj-column>
-    </mj-section>
-
-  {% verbatim %}
-    <mj-raw>
-      {% endif %}
-    </mj-raw>
-  {% endverbatim %}
-{% endblock %}
-
 {% block payment_method_outer %}
   {% verbatim %}
     <mj-raw>
@@ -140,14 +11,16 @@
         <mj-text
           font-size="16px"
           font-weight="500"
-          color="{{ style.color['grey-dark'] }}"
+          color="{{ style.color['black'] }}"
           padding-bottom="5px"
         >
           {% block payment_method_headline %}
-            {{ payment_method_headline | default('Payment method') }}
+            {{ payment_method_headline | default('PAYMENT INFORMATION') }}
           {% endblock %}
         </mj-text>
-
+          <mj-divider 
+              border-width="1px"
+              border-color="{{ style.color.grey }}"/>
         {% verbatim %}
           <mj-raw>
             {% for transaction in transactions %}
@@ -207,3 +80,132 @@
     </mj-raw>
   {% endverbatim %}
 {% endblock %}
+{% block shipping_address_outer %}
+  {% verbatim %}
+    <mj-raw>
+      {% if requires_shipping and shipping_address %}
+    </mj-raw>
+  {% endverbatim %}
+
+    <mj-section padding="{{ padding | default('0 0 30px') }}">
+      <mj-column>
+          <mj-text
+            font-size="20px"
+            font-weight="500"
+            color="{{ style.color['black'] }}"
+            padding-bottom="5px"
+          >
+            {% block shipping_address_headline %}
+              {{ shipping_address_headline | default('Shipping address') }}
+            {% endblock %}
+          </mj-text>
+
+          <mj-text
+            font-size="16px"
+            line-height="1.7"
+            color="{{ style.color['grey-dark'] }}"
+          >
+            {% block shipping_address %}
+              {% verbatim %}
+                {{ shipping_address | format_address }}
+              {% endverbatim %}
+            {% endblock %}
+          </mj-text>
+      </mj-column>
+    <mj-column>
+      <mj-text>
+      </mj-text>
+    </mj-column>
+  {% verbatim %}
+    <mj-raw>
+      {% endif %}
+    </mj-raw>
+  {% endverbatim %}
+{% endblock %}
+
+{% block billing_address_outer %}
+  {% verbatim %}
+    <mj-raw>
+      {% if billing_address %}
+    </mj-raw>
+  {% endverbatim %}
+<mj-column>
+      <mj-text>
+      </mj-text>
+</mj-column>
+      <mj-column>
+          <mj-text
+            font-size="20px"
+            font-weight="500"
+            color="{{ style.color['black'] }}"
+            padding-bottom="5px"
+            align="right"
+          >
+            {% block billing_address_headline %}
+              {{ billing_address_headline | default('Customer') }}
+            {% endblock %}
+          </mj-text>
+
+          <mj-text
+            font-size="16px"
+            line-height="1.7"
+            color="{{ style.color['grey-dark'] }}"
+            align="right"
+          >
+            {% block billing_address %}
+              {% verbatim %}
+                {{ billing_address | format_address }}
+              {% endverbatim %}
+            {% endblock %}
+          </mj-text>
+      </mj-column>
+    </mj-section>
+
+  {% verbatim %}
+    <mj-raw>
+      {% endif %}
+    </mj-raw>
+  {% endverbatim %}
+{% endblock %}
+
+{% block shipping_method_outer %}
+  {% verbatim %}
+    <mj-raw>
+      {% if requires_shipping and shipping_address %}
+    </mj-raw>
+  {% endverbatim %}
+
+    <mj-section padding-bottom="30px">
+      <mj-column>
+          <mj-text
+            font-size="16px"
+            font-weight="500"
+            color="{{ style.color['grey-dark'] }}"
+            padding-bottom="5px"
+          >
+            {% block shipping_method_headline %}
+              {{ shipping_method_headline | default('Shipping method') }}
+            {% endblock %}
+          </mj-text>
+
+          <mj-text
+            font-size="16px"
+            line-height="1.7"
+            color="{{ style.color['grey-dark'] }}"
+          >
+            {% block shipping_method %}
+              {% verbatim %}
+                {{ shipping_method.title }}
+              {% endverbatim %}
+            {% endblock %}
+          </mj-text>
+      </mj-column>
+    </mj-section>
+
+  {% verbatim %}
+    <mj-raw>
+      {% endif %}
+    </mj-raw>
+  {% endverbatim %}
+{% endblock %}
+

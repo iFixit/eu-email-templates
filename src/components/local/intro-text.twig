@@ -6,8 +6,14 @@
         font-size="16px"
         padding-bottom="20px"
         align="center"
-      >You decided to bust the isolation blues by fixing something—that's great! Inspire others to do so, too, and join our <a href="https://www.ifixit.com/News/36647/join-the-fixathome-challenge">#FixAtHome</a> challenge on <a href="https://twitter.com/iFixit">Twitter</a> and <a href="https://www.instagram.com/ifixit">Instagram</a>.
-      </mj-text>
+      >
+      {% block topline %}
+          {{ topline | default("You decided to bust the isolation blues by fixing something—that's great! Inspire others to do so, too, and join our #FixAtHome challenge on Twitter and Instagram.") }}
+        {% endblock %}
+        </mj-text>
+        <mj-text>
+        tes123
+        </mj-text>
     {% endblock %}
 
     {% block headline_outer %}

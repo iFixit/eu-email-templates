@@ -3,13 +3,13 @@
 {#
  # Email subject
  # ---
- # Order {{ name }} confirmed
+ # Order confirmation for your order {{ name }} 
  #}
 
 {# title - start #}
 {% block title %}
   {% verbatim %}
-    {% capture title %} Order Confirmation {% endcapture %}
+    {% capture title %} Thank you for your order! {% endcapture %}
   {% endverbatim %}
 
   {{ parent() }}
@@ -27,7 +27,7 @@
             {% when 'local' %}
               we're getting your order ready for delivery.
             {% else %}
-              we're getting your order ready to be shipped. We will notify you when it has been sent.
+              Hey John, Thank you for ordering with iFixit Europe. We will now prepare your order for shipping and notify you as soon as your order has been shipped. You can track the status of your order by clicking on the button below:
           {% endcase %}
         {% endif %}
     {% endcapture %}
@@ -39,10 +39,11 @@
 
 {# content - start #}
 {% block content %}
-  {% include '@components::local/intro-text.twig' with {
+  {% embed '@components::local/intro-text.twig' with {
     headline: '{{ title }}',
     text: '{{ preview }}'
   } %}
+  {% endembed %} 
 
   {% verbatim %}
     <mj-raw>
@@ -77,7 +78,7 @@
     {% include '@components::local/actions.twig' with {
       primary: {
         url: '{{ order_status_url }}',
-        text: 'View order'
+        text: 'ORDER STATUS'
       }
     } %}
 
@@ -85,7 +86,7 @@
     <mj-raw>
       {% else %}
     </mj-raw>
-  {% endverbatim %}
+  {% endverbatim %}   
 
     {% embed '@components::local/actions.twig' %}
       {% block secondary_outer %}{% endblock %}
@@ -96,11 +97,36 @@
       {% endif %}
     </mj-raw>
   {% endverbatim %}
+  <mj-section padding-bottom="20px">
+      <mj-column>
+        <mj-text
+          font-size="16px"
+          line-height="1.7"
+          color="{{ style.color['grey-dark'] }}"
+          align="center"
+        >Follow us & share your project on social media with #iFixit
+        </mj-text>
+        <mj-text
+        font-size="16px"
+          line-height="1.7"
+          color="{{ style.color['grey-dark'] }}"
+          align="center"
+          >For repair guides go to
+        </mj-text>
+        <mj-text
+        font-size="16px"
+          line-height="1.7"
+          color="{{ style.color['grey-dark'] }}"
+          align="center"
+          ><a href="http://www.ifixit.com">www.ifixit.com</a>
+        </mj-text>
+      </mj-column>
+    </mj-section>
 
   {% include '@components::local/gift-card-notice.twig' %}
 
   {% include '@components::local/headline.twig' with {
-    headline: 'Order summery',
+    headline: 'ORDER NO. {{ name }}',
     padding: '20px 0 5px'
   } %}
 
@@ -126,13 +152,37 @@
     {% block outstanding %}{% endblock %}
   {% endembed %}
 
+{% include '@components::local/customer-information.twig' %}
+
+  {# Terms of service and privacy policy #}
   <mj-section>
     <mj-column>
-      <mj-spacer height="50px" />
+      <mj-spacer height="10px" />
+      <mj-divider 
+        border-width="1px"
+        border-color="{{ style.color.grey }}"/>
+      <mj-spacer height="5px" />
+      <mj-text
+          font-size="16px"
+          line-height="1.7"
+          color="{{ style.color['grey-dark'] }}"
+          align="center"
+      >We hope you are happy with your order. Should you have any reason to complain, you can return your order within 14 days to us. More information on your right of cancelation and returns can be found in our" <a href="https://eustore.ifixit.com/policies/refund-policy">cancellation policy</a>. 
+      </mj-text>
+
+      <mj-spacer height="20px" />
+      <mj-text
+          font-size="16px"
+          line-height="1.7"
+          color="{{ style.color['grey-dark'] }}"
+          align="center"
+      >At iFixit EUROPE we take the protection of your personal data very seriously. Further information on how we process your personal data can be found in our privacy policy. Our <a href="https://eustore.ifixit.com/policies/terms-of-service">general terms and conditions</a> apply. 
+      </mj-text>
+      <mj-spacer height="20px" />
     </mj-column>
   </mj-section>
 
-  {% include '@components::local/customer-information.twig' %}
+  
 {% endblock %}
 {# content - end #}
 

@@ -8,14 +8,65 @@
         {% block footer %}
           <mj-text
             color="{{ style.color['grey-dark'] }}"
-            font-size="14px"
+            font-size="16px"
             line-height="1.7"
+            align="center"
           >
             {% block text %}
-              {{ text | default('If you have any questions, reply to this email or contact us at <a href="mailto:{{ shop.email }}">{{ shop.email }}</a>')}}
+              {{ text | default('Connect')}}
             {% endblock %}
           </mj-text>
         {% endblock %}
+      </mj-column>
+    </mj-section>
+    <mj-section
+          padding="30px 0"  
+          >
+      <mj-column>
+        <mj-text
+          font-size="16px"
+            line-height="1.7"
+            align="center"
+            >
+        </mj-text>
+      </mj-column>
+    </mj-section>
+    <mj-section
+            padding="30px 0"
+            >
+      <mj-column>
+        <mj-text
+            font-size="16px"
+            line-height="1.7"
+            align="center"
+            >
+        This is text
+        </mj-text>
+      </mj-column>
+    </mj-section>
+    <mj-section
+             border-top="1px solid {{ style.color.grey }}"
+            padding="30px 0"
+            >
+      <mj-column>
+        <mj-text
+            font-size="16px"
+            line-height="1.7"
+            align="center"
+            >
+        </mj-text>
+      </mj-column>
+    </mj-section>
+    <mj-section
+            padding="30px 0"
+            >
+      <mj-column>
+        <mj-text
+            font-size="16px"
+            line-height="1.7"
+            align="center"
+            >
+        </mj-text>
       </mj-column>
     </mj-section>
   </mj-wrapper>

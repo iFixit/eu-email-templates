@@ -11,3 +11,5 @@ style:
     red-light: '#FFEDED' # rgb(255,237,237)
     red: '#F34E46' # rgb(243,78,70)
     red-dark: '#D93531' # rgb(217,53,49)
+  text:
+    align: 'center'
