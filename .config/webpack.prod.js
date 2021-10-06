@@ -5,7 +5,7 @@ const HtmlMinimizerPlugin = require('html-minimizer-webpack-plugin')
 module.exports = merge(common, {
   mode: 'production',
   optimization: {
-    minimize: true,
+    minimize: false,
     minimizer: [
       new HtmlMinimizerPlugin({
         test: /\.liquid/i
