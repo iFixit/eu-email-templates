@@ -4,6 +4,10 @@
 </p>
 
 <p align="center">
+  <a href = "https://github.com/leemunroe/shopify-email-templates"> Template </a>
+</p>
+  
+<p align="center">
   <img src=".github/img/banner.svg" width="450px">
 </p>
 <!-- logo (end) -->
