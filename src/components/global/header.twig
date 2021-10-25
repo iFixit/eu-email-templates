@@ -8,7 +8,9 @@
           </mj-raw>
         {% endverbatim %}
 
-          <mj-text font-size="0">
+          <mj-text font-size="0"
+                  align="center"
+          >
             <a
               href="{% verbatim %}{{ shop.url }}{% endverbatim %}"
               style="display: inline-block;"
@@ -16,7 +18,8 @@
               <img
                 src="{{ development ? server ~ '/assets/logo_email.png' : '{{ shop.email_logo_url }}' }}"
                 alt="{% verbatim %}{{ shop.name }}{% endverbatim %}"
-                width="{% verbatim %}{{ shop.email_logo_width }}{% endverbatim %}"
+                width="300px"
+                
               >
             </a>
           </mj-text>

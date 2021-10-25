@@ -5,11 +5,12 @@
 
 {#
  # basic
- # you can use mj-all to set default attributes for every components inside your document
+ # you can use mj-all to set default attributes for every component inside your document
  #}
 <mj-all
-  font-family="Lato-Regular, Lato-Bold, Lato-Light"
+  font-family="Lato-Regular, Lato-Bold, Lato-Light | !important "
   padding="0"
+  font-weight="300"
 />
 <mj-body
   css-class="container"
@@ -18,29 +19,52 @@
 
 {# layout #}
 <mj-wrapper />
-<mj-section />
+<mj-section 
+  padding="{{ padding | default('0 0 20px') }}"
+  />
 <mj-column />
 <mj-raw />
 <mj-group />
 <mj-divider
   border-width="1px"
   border-color="{{ style.color.grey }}"
-/>
-<mj-spacer />
+  padding-bottom="20px"
+  />
+<mj-spacer 
+  height="10px"
+  />
 
 {# content #}
 <mj-text
-  line-height="1.5"
-/>
+  line-height="1.7"
+  font-size="16px"
+  />
+
 <mj-image />
-<mj-button />
+<mj-button
+  background-color="{{ style.color.primary }}"
+  color="{{ style.color.white }}"
+  css-class="action action--primary"
+  font-size="14px"
+  line-height="14px"
+  font-weight="500"
+  text-decoration="none !important"
+  text-transform="uppercase"
+  width="35%"
+  letter-spacing="0.1px"
+  border="5px solid #0071ce"
+  border-radius="5px" 
+  />
 <mj-table />
 
 {# components #}
 <mj-hero />
 <mj-navbar />
 <mj-navbar-link />
-<mj-social />
+<mj-social  
+  padding="14px"
+  inner-padding="10px"
+  icon-size="50px"/>
 <mj-carousel />
 <mj-accordion />
 
@@ -49,3 +73,18 @@
  # reference them like this: <mj-text mj-class="my-class"></mj-text>
  #}
 {# <mj-class name="bg-primary" background-color="{{ style.color.primary }}" /> #}
+
+<mj-class name="H1" 
+  font-family="Lato,sans-serif" 
+  font-weight="300" 
+  font-size="30px" 
+  line-height="1.7" 
+  color="{{ style.color['grey-dark'] }}"
+  align="center" />
+
+<mj-class name="simpletext"
+  font-family="Lato,sans-serif" 
+  font-size="16px" 
+  line-height="1.7" 
+  color="{{ style.color['grey-dark'] }}"
+   />

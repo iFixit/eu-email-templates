@@ -1,15 +1,15 @@
-{% extends ['@layouts::base.twig', '@layouts::de_copy.json'] %}
+{% extends '@layouts::base.twig' %}
 
 {#
  # Email subject
  # ---
- # Order confirmation for your order {{ name }} 
+ # Order {{ name }} confirmed
  #}
 
 {# title - start #}
 {% block title %}
   {% verbatim %}
-    {% capture title %} Thank you for your order! {% endcapture %}
+    {% capture title %} Bestellbestätigung {% endcapture %}
   {% endverbatim %}
 
   {{ parent() }}
@@ -19,25 +19,15 @@
 {# preview - start #}
 {% block preview %}
   {% verbatim %}
-    {% capture preview | string_with_newlines %}
+    {% capture preview %}
         {% if requires_shipping %}
           {% case delivery_method %}
             {% when 'pick-up' %}
-            {{ emails.order_confirmation.intro }}
-              Hello {{ customer.first_name }},<br />
-              Thank you for choosing iFixit EUROPE for your DIY project!<br />
-              We are preparing the item(s) you ordered for you to pick them up<br />
-              You can follow your order status by clicking on the button below:<br />
+              You’ll receive an email when your order is ready for pickup.
             {% when 'local' %}
-            {{ emails.order_confirmation.intro }}
-              Hello {{ customer.first_name }},<br />
-              Thank you for choosing iFixit EUROPE for your DIY project!<br />
-              We are preparing the item(s) you ordered for shipping and we will send you<br />
-              a message as soon as your order is on its way. You can follow your order status<br />
-              by clicking on the button below:
+              Hi {{ customer.first_name }}, we're getting your order ready for delivery.
             {% else %}
-            {{ include email.orders.order_confirmation }}
-              
+              Hi {{ customer.first_name }}, we're getting your order ready to be shipped. We will notify you when it has been sent.
           {% endcase %}
         {% endif %}
     {% endcapture %}
@@ -49,13 +39,11 @@
 
 {# content - start #}
 {% block content %}
-  {% include '@components::local/intro-text-short.twig' with {
+  {% include '@components::local/intro-text.twig' with {
     headline: '{{ title }}',
     text: '{{ preview }}'
   } %}
-  {% verbatim %}
-    {% if attributes.Locale == 'de' %}Bestellung {{name}} bestätigt{% else %}Order {{name}} confirmed{% endif %}
-  {% endverbatim %}
+
   {% verbatim %}
     <mj-raw>
       {% if requires_shipping and delivery_instructions != blank %}
@@ -65,6 +53,8 @@
     <mj-section padding-bottom="20px">
       <mj-column>
         <mj-text
+          font-size="16px"
+          line-height="1.7"
           color="{{ style.color['grey-dark'] }}"
         >
           <strong>Delivery information:</strong> {% verbatim %}{{ delivery_instructions }}{% endverbatim %}
@@ -87,7 +77,7 @@
     {% include '@components::local/actions.twig' with {
       primary: {
         url: '{{ order_status_url }}',
-        text: 'ORDER STATUS'
+        text: 'View your order'
       }
     } %}
 
@@ -95,7 +85,7 @@
     <mj-raw>
       {% else %}
     </mj-raw>
-  {% endverbatim %}   
+  {% endverbatim %}
 
     {% embed '@components::local/actions.twig' %}
       {% block secondary_outer %}{% endblock %}
@@ -106,12 +96,11 @@
       {% endif %}
     </mj-raw>
   {% endverbatim %}
-  
 
   {% include '@components::local/gift-card-notice.twig' %}
 
   {% include '@components::local/headline.twig' with {
-    headline: 'ORDER NO. {{ name }}',
+    headline: 'Order summery',
     padding: '20px 0 5px'
   } %}
 
@@ -133,34 +122,17 @@
     </mj-raw>
   </mj-wrapper>
 
-
   {% embed '@components::local/totals.twig' %}
     {% block outstanding %}{% endblock %}
   {% endembed %}
 
-{% include '@components::local/customer-information.twig' %}
-
-  {# Terms of service and privacy policy #}
   <mj-section>
     <mj-column>
-      <mj-divider 
-        border-width="1px"
-        border-color="{{ style.color.grey }}"
-        />
-      <mj-spacer height="5px" />
-      <mj-text
-          color="{{ style.color['black'] }}"
-          align="center"
-          padding-bottom="20px"
-      >We hope you are happy with your order. Should you have any reason to complain, you can return your order within 14 days to us. More information on your right of cancelation and returns can be found in our" <a href="https://eustore.ifixit.com/policies/refund-policy">cancellation policy</a>. 
-      <br />
-    <br />
-      At iFixit EUROPE we take the protection of your personal data very seriously. Further information on how we process your personal data can be found in our privacy policy. Our <a href="https://eustore.ifixit.com/policies/terms-of-service">general terms and conditions</a> apply. 
-      </mj-text>
+      <mj-spacer height="50px" />
     </mj-column>
   </mj-section>
 
-  
+  {% include '@components::local/customer-information.twig' %}
 {% endblock %}
 {# content - end #}
 
@@ -183,10 +155,3 @@
   {% endif %}
 {% endblock %}
 {# footer - end #}
-
-
-
-
-
-
-

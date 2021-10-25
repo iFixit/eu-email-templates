@@ -9,7 +9,7 @@
 {# title - start #}
 {% block title %}
   {% verbatim %}
-    {% capture title %}Invoice {{ name }}{% endcapture %}
+    {% capture title %}Your order invoice {{ name }}{% endcapture %}
   {% endverbatim %}
 
   {{ parent() }}
@@ -19,7 +19,8 @@
 {# preview - start #}
 {% block preview %}
   {% verbatim %}
-    {% capture preview %}Payment of {{ total_outstanding | money }} is needed{% endcapture %}
+    {% capture preview %}
+    {% endcapture %}
   {% endverbatim %}
 
   {{ parent() }}
@@ -28,12 +29,59 @@
 
 {# content - start #}
 {% block content %}
-  {% embed '@components::local/intro-text.twig' with {
-    headline: '{{ preview }}'
+  {% embed '@components::local/intro-text-short.twig' with {
+    headline: '{{ title }}'
   } %}
-    {% block text_outer %}{% endblock %}
-  {% endembed %}
+    
+{% block text_outer %}
+  
+    {% if transactions_status != 'pending' %}
 
+        <mj-text 
+          font-family="Lato,sans-serif" 
+          font-size="16px" 
+          line-height="1.7" 
+          color="{{ style.color['black'] }}"
+          align="center"
+          letter-spacing="0.1px"
+          >
+            Hello tesssst{{ customer.first_name }},<br /> 
+            Please find the invoice for your order {{ name }} placed on {{ created_at }} attached <br />
+            to this message. You will receive a separate message as soon as your order is shipped.<br /> 
+            We’d be thrilled to have you back for your next repair project!<br /> 
+          </mj-text>
+          <mj-text
+            padding="15px 0 20px 0"
+            font-family="Lato,sans-serif" 
+            font-size="16px" 
+            line-height="1.7" 
+            color="{{ style.color['black'] }}"
+            align="center"
+            letter-spacing="0.1px"
+          >
+            Your iFixit EUROPE team
+          </mj-text>
+      {% else %}
+        <mj-text 
+          font-family="Lato,sans-serif" 
+          font-size="16px" 
+          line-height="1.7" 
+          color="{{ style.color['black'] }}"
+          align="center"
+          letter-spacing="0.1px"
+          >
+            Hello John,<br /> 
+            Please find the invoice for your order #9999 placed on 01.09.21 attached
+            to this message. You will receive a separate message as soon as your order is shipped.
+            We’d be thrilled to have you back for your next repair project!
+            <br />
+            Your iFixit EUROPE team
+          </mj-text>
+      {% endif %}
+{% endblock %}
+    
+  
+  {% endembed %}    
   {% embed '@components::local/actions.twig' with {
     primary: {
       url: '{{ checkout_payment_collection_url }}',
@@ -41,11 +89,15 @@
     },
     padding: '0 0 20px'
   } %}
-    {% block secondary_outer %}{% endblock %}
+    {% block secondary_outer %}
+      
+    {% endblock %}
   {% endembed %}
 
+
   {% include '@components::local/headline.twig' with {
-    headline: 'Order summery',
+    headline: 'ORDER STATUS {{ name }}',
+    text_outer: 'text',
     padding: '20px 0 5px'
   } %}
 
@@ -56,7 +108,7 @@
         : '{% for line in subtotal_line_items %}'
       }}
     </mj-raw>
-
+  
       {% include '@components::local/product.twig' %}
 
     <mj-raw>
@@ -80,7 +132,27 @@
   </mj-section>
 
   {% embed '@components::local/customer-information.twig' %}
+
+  
+  
     {% block payment_method_outer %}{% endblock %}
   {% endembed %}
+
+{# FAQ & Helpscout #}
+  <mj-section>
+    <mj-column>
+      <mj-divider 
+        border-width="1px"
+        border-color="{{ style.color.grey }}"
+        />
+      <mj-spacer height="5px" />
+        <mj-text
+            color="{{ style.color['grey-dark'] }}"
+            align="center"
+            padding-top="20px"
+        >Do you have any questions concerning your order?<br />
+        Check out our <a href="https://ifixit-eu-en.helpscoutdocs.com">FAQ</a> or contact our customer service at <a href="mailto:eustore@ifixit.com">eustore@ifixit.com</a>.</mj-text>
+    </mj-column>
+  </mj-section>
 {% endblock %}
 {# content - end #}

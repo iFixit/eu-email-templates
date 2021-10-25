@@ -50,10 +50,10 @@
 
               <td style="width: 60px; padding-right: 15px;">
                 <img
-                  src="{{ development ? server ~ '/assets/product.png' : "{{ line_item | img_url: 'compact_cropped' }}" }}"
+                  src="{{ development ? server ~ '/assets/EMail_Product_01.jpeg' : "{{ line_item | img_url: 'compact_cropped' }}" }}"
                   width="60px"
                   height="60px"
-                  style="border: 1px solid {{ style.color.grey }}; vertical-align: middle;"
+                  style="border: 1px solid '{{ style.color.grey }}'; vertical-align: 'middle'"
                 />
               </td>
 
@@ -154,7 +154,7 @@
                       style="vertical-align: bottom; padding-right: 4px"
                     />
 
-                    <span style="color: {{ style.color['grey-dark'] }}; font-size: 14px;">
+                    <span style="color: '{{ style.color['grey-dark'] }}'; font-size: 14px;">
                       {% verbatim %}
                         {{ discount_allocation.discount_application.title | upcase }}
                         (-{{ discount_allocation.amount | money }})
@@ -179,7 +179,7 @@
                 {% endverbatim %}
 
                     <div style="text-align: right;">
-                      <del style="font-size: 14px; color: {{ style.color['grey-dark'] }}">
+                      <del style="font-size: 14px; color: '{{ style.color['grey-dark'] }}'">
                         {% verbatim %}
                           {{ line_item.original_line_price | money }}
                         {% endverbatim %}
@@ -206,7 +206,7 @@
                     {% if line_item.unit_price_measurement %}
                   {% endverbatim %}
 
-                    <div style="color: {{ style.color['grey-dark'] }}; font-size: 12px; text-align: right;">
+                    <div style="color: '{{ style.color['grey-dark'] }}'; font-size: 12px; text-align: right;">
                       {% verbatim %}
                         {{ line_item.unit_price | money }} /
 

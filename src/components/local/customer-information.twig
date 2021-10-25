@@ -1,9 +1,87 @@
-{% block headline_outer %}
-  {% include '@components::local/headline.twig' with {
-    headline: headline | default('Customer information')
-  } %}
-{% endblock %}
+{% block payment_method_outer %}
+  {% verbatim %}
+    <mj-raw>
+      {% assign transaction_count = transactions | size %}
+      {% if transaction_count > 0 %}
+    </mj-raw>
+  {% endverbatim %}
 
+    <mj-section padding-bottom="30px">
+      <mj-column>
+        <mj-text
+          font-size="20px"
+          font-weight="500"
+          color="{{ style.color['black'] }}"
+          padding-bottom="5px"
+        >
+          {% block payment_method_headline %}
+            {{ payment_method_headline | default('PAYMENT INFO') }}
+          {% endblock %}
+        </mj-text>
+          <mj-divider 
+              border-width="1px"
+              border-color="{{ style.color.grey }}"/>
+              padding-bottom="10px"
+        {% verbatim %}
+          <mj-raw>
+            {% for transaction in transactions %}
+              {% if transaction.status == 'success' or transaction.status == 'pending' %}
+                {% if transaction.kind == 'authorization' or transaction.kind == 'sale' %}
+          </mj-raw>
+        {% endverbatim %}
+
+          <mj-text
+            font-size="16px"
+            line-height="1.7"
+            color="{{ style.color['grey-dark'] }}"
+            padding-bottom="5px"
+            padding-top="10px"
+          >
+            {% block payment_method %}
+              {% verbatim %}
+                {% if transaction.payment_details.credit_card_company %}
+                  {% capture credit_card_url %}notifications/{{ transaction.payment_details.credit_card_company | downcase | replace: ' ', '_' }}.png{% endcapture %}
+
+                  <img
+                    src="{{ credit_card_url | shopify_asset_url }}"
+                    width="38"
+                    height="24"
+                    style="vertical-align: text-top; padding-right: 5px;"
+                  >
+ 
+                  Visa (••••••••••••{{ transaction.payment_details.credit_card_last_four_digits }}) — <strong>{{ transaction.amount | money }}</strong>
+                {% elsif transaction.gateway_display_name == 'Gift card' %}
+                  <img
+                    src="{{ 'notifications/gift-card.png' | shopify_asset_url }}"
+                    width="38"
+                    height="24"
+                    style="vertical-align: text-top; padding-right: 5px;"
+                  >
+
+                  ending with {{ transaction.payment_details.gift_card.last_four_characters | upcase }} — <strong>{{ transaction.amount | money }}</strong><br /> <span style="font-size: 14px;">(Gift card balance: {{ transaction.payment_details.gift_card.balance | money }})</span>
+                {% else %}
+                  {{ transaction.gateway_display_name }} — <strong>{{ transaction.amount | money }}</strong>
+                {% endif %}
+              {% endverbatim %}
+            {% endblock %}
+          </mj-text>
+
+        {% verbatim %}
+          <mj-raw>
+                {% endif %}
+              {% endif %}
+            {% endfor %}
+          </mj-raw>
+        {% endverbatim %}
+      </mj-column>
+    </mj-section>
+
+  {% verbatim %}
+    <mj-raw>
+      {% endif %}
+    </mj-raw>
+  {% endverbatim %}
+{% endblock %}
 {% block shipping_address_outer %}
   {% verbatim %}
     <mj-raw>
@@ -14,9 +92,9 @@
     <mj-section padding="{{ padding | default('0 0 30px') }}">
       <mj-column>
           <mj-text
-            font-size="16px"
+            font-size="20px"
             font-weight="500"
-            color="{{ style.color['grey-dark'] }}"
+            color="{{ style.color['black'] }}"
             padding-bottom="5px"
           >
             {% block shipping_address_headline %}
@@ -36,8 +114,10 @@
             {% endblock %}
           </mj-text>
       </mj-column>
-    </mj-section>
-
+    <mj-column>
+      <mj-text>
+      </mj-text>
+    </mj-column>
   {% verbatim %}
     <mj-raw>
       {% endif %}
@@ -51,17 +131,20 @@
       {% if billing_address %}
     </mj-raw>
   {% endverbatim %}
-
-    <mj-section padding-bottom="30px">
+<mj-column>
+      <mj-text>
+      </mj-text>
+</mj-column>
       <mj-column>
           <mj-text
-            font-size="16px"
+            font-size="20px"
             font-weight="500"
-            color="{{ style.color['grey-dark'] }}"
+            color="{{ style.color['black'] }}"
             padding-bottom="5px"
+            align="right"
           >
             {% block billing_address_headline %}
-              {{ billing_address_headline | default('Billing address') }}
+              {{ billing_address_headline | default('Customer') }}
             {% endblock %}
           </mj-text>
 
@@ -69,6 +152,7 @@
             font-size="16px"
             line-height="1.7"
             color="{{ style.color['grey-dark'] }}"
+            align="right"
           >
             {% block billing_address %}
               {% verbatim %}
@@ -127,83 +211,3 @@
   {% endverbatim %}
 {% endblock %}
 
-{% block payment_method_outer %}
-  {% verbatim %}
-    <mj-raw>
-      {% assign transaction_count = transactions | size %}
-      {% if transaction_count > 0 %}
-    </mj-raw>
-  {% endverbatim %}
-
-    <mj-section padding-bottom="30px">
-      <mj-column>
-        <mj-text
-          font-size="16px"
-          font-weight="500"
-          color="{{ style.color['grey-dark'] }}"
-          padding-bottom="5px"
-        >
-          {% block payment_method_headline %}
-            {{ payment_method_headline | default('Payment method') }}
-          {% endblock %}
-        </mj-text>
-
-        {% verbatim %}
-          <mj-raw>
-            {% for transaction in transactions %}
-              {% if transaction.status == 'success' or transaction.status == 'pending' %}
-                {% if transaction.kind == 'authorization' or transaction.kind == 'sale' %}
-          </mj-raw>
-        {% endverbatim %}
-
-          <mj-text
-            font-size="16px"
-            line-height="1.7"
-            color="{{ style.color['grey-dark'] }}"
-            padding-bottom="5px"
-          >
-            {% block payment_method %}
-              {% verbatim %}
-                {% if transaction.payment_details.credit_card_company %}
-                  {% capture credit_card_url %}notifications/{{ transaction.payment_details.credit_card_company | downcase | replace: ' ', '_' }}.png{% endcapture %}
-
-                  <img
-                    src="{{ credit_card_url | shopify_asset_url }}"
-                    width="38"
-                    height="24"
-                    style="vertical-align: text-top; padding-right: 5px;"
-                  >
-
-                  ending with {{ transaction.payment_details.credit_card_last_four_digits }} — <strong>{{ transaction.amount | money }}</strong>
-                {% elsif transaction.gateway_display_name == 'Gift card' %}
-                  <img
-                    src="{{ 'notifications/gift-card.png' | shopify_asset_url }}"
-                    width="38"
-                    height="24"
-                    style="vertical-align: text-top; padding-right: 5px;"
-                  >
-
-                  ending with {{ transaction.payment_details.gift_card.last_four_characters | upcase }} — <strong>{{ transaction.amount | money }}</strong> <span style="font-size: 14px;">(Gift card balance: {{ transaction.payment_details.gift_card.balance | money }})</span>
-                {% else %}
-                  {{ transaction.gateway_display_name }} — <strong>{{ transaction.amount | money }}</strong>
-                {% endif %}
-              {% endverbatim %}
-            {% endblock %}
-          </mj-text>
-
-        {% verbatim %}
-          <mj-raw>
-                {% endif %}
-              {% endif %}
-            {% endfor %}
-          </mj-raw>
-        {% endverbatim %}
-      </mj-column>
-    </mj-section>
-
-  {% verbatim %}
-    <mj-raw>
-      {% endif %}
-    </mj-raw>
-  {% endverbatim %}
-{% endblock %}

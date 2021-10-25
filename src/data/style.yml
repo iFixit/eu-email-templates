@@ -7,7 +7,9 @@ style:
     white: '#ffffff' # rgb(255,255,255)
     grey: '#e1e1e1' # rgb(225,225,225)
     grey-dark: '#828D96' # rgb(130,141,150)
-    primary: '#1975F1' # rgb(25,117,241)
+    primary: '#0071ce' # rgb(25,117,241)
     red-light: '#FFEDED' # rgb(255,237,237)
     red: '#F34E46' # rgb(243,78,70)
     red-dark: '#D93531' # rgb(217,53,49)
+  text:
+    align: 'center'

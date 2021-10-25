@@ -1,20 +1,26 @@
 <mj-section>
   <mj-column>
-  {# Ich hab die Topline variable rausgenommen weil ich keine Links einfügen konnte. Evtl. muss diese wieder eingesetzt werden. #}
     {% block topline_outer %}
       <mj-text
+        padding="{{ padding | default('0 0 20px') }}"
         color="{{ style.color['black'] }}"
-        padding-bottom="20px"
         align="center"
-      >You decided to bust the isolation blues by fixing something—that's great! Inspire others to do so, too, and join our <a href="https://www.ifixit.com/News/36647/join-the-fixathome-challenge">#FixAtHome</a> challenge on <a href="https://twitter.com/iFixit">Twitter</a> and <a href="https://www.instagram.com/ifixit">Instagram</a>.
+      >
+    {% block topline %}
+          {{ topline | default("Follow us & share your project on social media with #iFixit <br />For repair guides go to") }}
+        {% endblock %}
+        <br />
+        <a href="http://www.ifixit.com">www.ifixit.com</a>
         </mj-text>
+        
+
     {% endblock %}
 
     {% block headline_outer %}
       <mj-text
         font-size="32px"
-        line-height="2.2"
         font-weight="400"
+        line-height="2.2"
         padding-bottom="20px"
         align="center"
       >

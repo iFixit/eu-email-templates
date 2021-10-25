@@ -1,0 +1,466 @@
+{
+    "general": {
+      "404": {
+        "title": "404 SEITE NICHT GEFUNDEN",
+          "subtext_html": "Wir können diese Seite leider nicht finden. Ooops! Sorry. Wir werden versuchen das so schnell wie möglich zu reparieren. Du kannst hier warten oder <a href=\"/collections/tools\">WERKZEUGE</a> und <a href=\"/collections/parts\">ERSATZTEILE</a> einkaufen. "
+      },
+      "accessibility": {
+        "skip_to_content": "Direkt zum Inhalt"
+      },
+      "meta": {
+        "tags": "Getaggt \"{{ tags }}\"",
+        "page": "Seite {{ page }}"
+      },
+      "password_page": {
+        "opening_soon": "Eröffnet demnächst",
+        "spread_the_word": "Weitersagen",
+        "login_form_heading": "Shop mit Passwort betreten",
+        "login_form_password_label": "Passwort",
+        "login_form_password_placeholder": "Ihr Passwort",
+        "login_form_submit": "Betreten",
+        "signup_form_heading": "Finden Sie heraus, wann wir eröffnen",
+        "signup_form_email_label": "E-Mail",
+        "signup_form_email_placeholder": "Ihre E-Mail-Adresse",
+        "signup_form_submit": "Abschicken",
+        "signup_form_success": "Wir senden Ihnen eine E-Mail, kurz bevor wir eröffnen!",
+        "admin_link_html": "Sind Sie der Geschäftsinhaber? <a href=\"/admin\">Melden Sie sich hier an</a>",
+        "password_link": "Mit Passwort betreten",
+        "powered_by_shopify_html": "Dieser Shop wird mit Hilfe von {{ shopify }} betrieben werden"
+      },
+      "social": {
+        "share_on_facebook": "Teilen",
+        "share_on_twitter": "Twittern",
+        "share_on_pinterest": "Pinnen",
+        "alt_text": {
+          "share_on_facebook": "Auf Facebook teilen",
+          "share_on_twitter": "Auf Twitter twittern",
+          "share_on_pinterest": "Auf Pinterest pinnen"
+        }
+      },
+      "search": {
+        "title": "Suchen Sie auf unserer Seite nach Produkten",
+        "placeholder": "Suche",
+        "submit": "Suchen",
+        "cancel": "Abbrechen",
+        "heading": {
+          "one": "Suchergebnis",
+          "other": "Suchergebnisse"
+        },
+        "results_with_count": {
+          "one": "{{ count }} Ergebnis für \"{{ terms }}\"",
+          "other": "{{ count }} Ergebnisse für \"{{ terms }}\""
+        },
+        "no_results_html": "Bitte versuchen Sie einen anderen Suchbegriff oder gehen Sie zurück zur <a href=\"/\">Startseite</a>."
+      },
+      "newsletter_form": {
+        "newsletter_email": "Im Bilde sein",
+        "email_placeholder": " E-Mail-Adresse ",
+        "confirmation": " Danke für Ihre Anmeldung ",
+        "submit": "Abonnieren"
+      },
+      "close": "Schließen"
+    },
+    "cart": {
+      "general": {
+        "total": "Artikel insgesamt",
+        "or_pay_with": "oder zahlen mit",
+        "title": "Einkaufswagen",
+        "remove": "Entfernen",
+        "note": "Besondere Hinweise an den Verkäufer",
+        "subtotal": "Zwischensumme",
+        "shipping_at_checkout": "Liefer- und Preisnachlässe an der Kasse berechnet",
+        "update": "Einkaufswagen aktualisieren",
+        "checkout": "Zur Kasse",
+        "empty": "Dein Warenkorb scheint leer zu sein",
+        "cookies_required": "Aktivieren Sie Cookies, um den Einkaufswagen benutzen zu können",
+        "browse": "Schau dich im Store um",
+        "continue_browsing": "Schau dich im Store um",
+        "continue": "Weiter Einkaufen",
+        "item_quantity": "Produktmenge",
+        "savings": "Sie sparen",
+        "continue_browsing_html": "Mit der Suche <a href=\"\/collections\/all\">hier<\/a> fortfahren.",
+        "or": "oder",
+        "view_cart": "Einkaufswagen ansehen",
+        "close_cart": "Einkaufswagen schließen",
+        "savings_html": "Sie sparen {{ price }}",
+        "taxes_extra": "Rabattcodes, Versandkosten und Steuern werden bei der Bezahlung berechnet."
+      },
+      "label": {
+        "product": "Artikel",
+        "price": "Preis",
+        "quantity": "Menge",
+        "total": "Gesamt",
+        "discounted_price": "ermäßigter Preis",
+        "original_price": "Originalpreis"
+      },
+      "recommendations": {
+        "title": "Wird häufig zusammen gekauft"
+      }
+    },
+    "collections": {
+      "general": {
+        "no_matches": "Es tut uns leid, aber Ihre Suche nach Produkten hat keine Treffer ergeben.",
+        "link_title": "Durchsuchen Sie unsere {{ title }}-Zusammenstellung",
+        "child_title": "Produkte in \"{{ child }}\"",
+        "more": "Mehr Produkte in \"{{ child }}\"",
+        "items_with_count": {
+          "zero": "0 Produkte",
+          "one": "1 Produkt",
+          "other": "{{ count }} Produkte"
+        }
+      }
+    },
+    "contact": {
+      "form": {
+        "name": "Name",
+        "email": "E-Mail",
+        "phone": "Telefonnummer",
+        "message": "Nachricht",
+        "send": "Absenden",
+        "post_success": "Danke, dass Sie uns kontaktiert haben. Wir werden uns so schnell wie möglich bei Ihnen melden."
+      }
+    },
+    "customer": {
+      "account": {
+        "title": "Mein Account",
+        "details": "Account-Details",
+        "view_addresses": "Adressen ansehen",
+        "return": "Zurück zu Account-Details"
+      },
+      "activate_account": {
+        "title": "Account aktivieren",
+        "subtext": "Erstellen Sie ein Passwort, um Ihren Account zu aktiveren.",
+        "password": "Passwort",
+        "password_confirm": "Passwort bestätigen",
+        "submit": "Account aktivieren",
+        "cancel": "Einladung ablehnen"
+      },
+      "addresses": {
+        "title": "Ihre Adressen",
+        "default": "Standard",
+        "add_new": "Neue Adresse hinzufügen",
+        "edit_address": "Adresse bearbeiten",
+        "first_name": "Vorname",
+        "last_name": "Nachname",
+        "company": "Firma",
+        "address1": "Adresse1",
+        "address2": "Adresse2",
+        "city": "Stadt",
+        "country": "Land",
+        "province": "Bundesland",
+        "zip": "PLZ",
+        "phone": "Telefon",
+        "set_default": "Als Standard-Adresse festlegen",
+        "add": "Adresse hinzufügen",
+        "update": "Adresse aktualisieren",
+        "cancel": "Abbrechen",
+        "edit": "Bearbeiten",
+        "delete": "Löschen",
+        "delete_confirm": "Sind Sie sicher, dass Sie diese Adresse löschen möchten?",
+        "or": "oder"
+      },
+      "login": {
+        "title": "Login",
+        "email": "E-Mail",
+        "password": "Passwort",
+        "forgot_password": "Haben Sie Ihr Passwort vergessen?",
+        "sign_in": "Anmelden",
+        "cancel": "Zurück zum Shop",
+        "guest_title": "Als Gast fortsetzen",
+        "guest_continue": "Fortsetzen",
+        "or": "oder"
+      },
+      "orders": {
+        "title": "Bestellungen",
+        "order_number": "Bestellung",
+        "date": "Datum",
+        "payment_status": "Zahlungsstatus",
+        "fulfillment_status": "Lieferstatus",
+        "total": "Gesamt",
+        "none": "Sie haben noch keine Bestellungen aufgegeben."
+      },
+      "order": {
+        "title": "Bestellung {{ name }}",
+        "date": "Aufgegeben am {{ date }}",
+        "cancelled": "Bestellung storniert am {{ date }}",
+        "cancelled_reason": "Grund: {{ reason }}",
+        "billing_address": "Rechnungsadresse",
+        "payment_status": "Zahlungsstatus",
+        "shipping_address": "Lieferadresse",
+        "fulfillment_status": "Lieferstatus",
+        "discount": "Rabatt",
+        "shipping": "Versand",
+        "tax": "Steuern",
+        "product": "Artikel",
+        "sku": "SKU",
+        "price": "Preis",
+        "quantity": "Menge",
+        "total": "Gesamt",
+        "fulfilled_at": "Datum abgeschlossen",
+        "track_shipment": "Sendung verfolgen",
+        "tracking_url": "Tracking link",
+        "tracking_company": "Unternehmen",
+        "tracking_number": "Sendungscode",
+        "subtotal": "Zwischensumme",
+        "placed_on_date_html": "Aufgegeben am {{ date }}",
+        "cancelled_on": "Bestellung storniert am {{ date }}",
+        "cancel_reason": "Grund",
+        "fulfilled_on": "Geliefert am {{ date }}"
+      },
+      "recover_password": {
+        "title": "Passwort zurücksetzen",
+        "email": "E-Mail",
+        "submit": "Absenden",
+        "cancel": "Abbrechen",
+        "subtext": "Wir werden Ihnen eine E-Mail zum Zurücksetzen des Passworts schicken.",
+        "success": "Wir haben Ihnen eine E-Mail mit einem Link zum Aktualisieren des Passworts geschickt."
+      },
+      "reset_password": {
+        "title": "Account-Passwort zurücksetzen",
+        "subtext": "Geben Sie ein neues Passwort für {{ email }} ein",
+        "password": "Passwort",
+        "password_confirm": "Passwort bestätigen",
+        "submit": "Passwort zurücksetzen"
+      },
+      "register": {
+        "title": "Registrieren",
+        "first_name": "Vorname",
+        "last_name": "Nachname",
+        "email": "E-Mail",
+        "password": "Passwort",
+        "submit": "Erstellen",
+        "cancel": "Zurück zum Shop",
+        "or": "oder"
+      }
+    },
+    "homepage": {
+      "onboarding": {
+          "blog_title": "Der Titel Ihres Posts",
+          "blog_excerpt": "Ihr Laden hat noch keine Blogposts veröffentlicht. Ein Blog kann genutzt werden, um über die Einführung neuer Produkte, Tipps oder andere Neuigkeiten, die Sie mit Ihren Kunden teilen möchten, zu berichten. Für Inspiration und Ratschläge für Ihren eigenen Laden und Blog können Sie den E-Commerce-Blog von Shopify besuchen.",
+          "blog_author": "Name des Autors",
+          "product_title": "Beispielhafter Produkttitel",
+          "collection_title": "Beispielhafter Zusammenstellungstitel",
+          "no_content": "Dieser Bereich hat zur Zeit keinen Inhalt. Füge diesem Bereich über die Seitenleiste Inhalte hinzu."
+      },
+      "featured_collections": {
+          "heading": "Suchen nach",
+          "more_categories": "Weitere Kategorien",
+          "no_collections_html": "Sie haben keine Zusammenstellungen, die Sie hier anzeigen können. <a href=\"\/admin\/themes\/\">Fügen Sie ein paar ausgewählte Zusammenstellungen<\/a> in Ihren Theme-Einstellungen hinzu.",
+          "example_collection": "Beispielzusammenstellung"
+      },
+      "featured_collection_rows": {
+          "heading": "Ausgewählte Zusammenstellung",
+          "more": "Mehr",
+          "example_product_title": "Beispielhafter Produkttitel",
+          "more_in_collection": "Mehr {{ collection_title }}"
+      }
+    },
+    "layout": {
+      "cart": {
+        "title": "Einkaufswagen",
+        "items_count": {
+          "one": "Produkt",
+          "other": "Produkte"
+        },
+        "cart": "Einkaufswagen"
+      },
+      "shop": {
+        "breadcrumb_title": "Shop"
+      },
+      "customer": {
+        "account": "Account",
+        "logged_in_as_html": "Eingeloggt als {{ first_name }}",
+        "log_out": "Ausloggen",
+        "log_in": "Anmelden",
+        "create_account": "Registrieren",
+        "edit": "Edit profile",
+        "teams": "Teams",
+        "orders": "My orders",
+        "view_account": "Account ansehen",
+        "sign_in": "Anmelden",
+        "or": "oder"
+      },
+      "footer": {
+        "social_platform": "{{ name }} auf {{ platform }}",
+        "copyright": "Urheberrecht",
+        "payment_methods": "Akzeptierte Zahlungsarten",
+        "free_manuals": "Kostenlose Anleitungen",
+        "solutions": "Lösungen",
+        "devices": "Geräte",
+        "theme_settings": "Theme-Einstellungen",
+        "instructions_for_linklist_html": "Wählen Sie eine Link-Liste, die hier angezeigt werden soll, in Ihren {{ theme_settings_link }} unter {{ theme_settings_footer_linklist_path }} aus.",
+        "instructions_for_text_content_html": "Fügen Sie einen Text, der hier angezeigt werden soll, in Ihren {{ theme_settings_link }} aus.",
+        "store_on_social_network": "{{ store_name }} auf {{ social_network }}",
+        "newsletter_sign_up": "Registrieren",
+        "newsletter_email_placeholder": "E-Mail-Adresse",
+        "newsletter_confirmation": "Danke fürs Anmelden"
+      },
+      "navigation": {
+        "more": "Mehr",
+        "mobile_menu": "Menü"
+      },
+      "search_bar": {
+        "placeholder": "Alle Artikel durchsuchen...",
+        "submit": "Suchen"
+      }
+    },
+    "products": {
+      "product": {
+        "regular_price": "Normaler Preis",
+        "sold_out": "Ausverkauft",
+        "unavailable": "Nicht verfügbar",
+        "on_sale": "Im Angebot",
+        "on_sale_from_html": "Im Angebot ab {{ price }}",
+        "from_text_html": "Ab {{ price }}",
+        "quantity": "Menge",
+        "add_to_cart": "In den Warenkorb",
+        "add_to_cart_success": "Hinzugefügt",
+        "description": "Beschreibung",
+        "guides": "Reparaturanleitungen",
+        "note": "Hinweis",
+        "warning": "Warnung",
+        "reviews": "Kundenbewertungen",
+        "product_details": "Produktdetails",
+        "kit_content": "Kit Inhalt",
+        "assembly_contents": "Die Baugruppe enthält",
+        "compatibility": "Kompatibilität",
+        "specifications": "Spezifikationen",
+        "warranty": "Garantie",
+        "warranty_html": "<p>Wir bieten eine lebenslange iFixit-Garantie auf viele Produkte. Alle Informationen zu unseren Garantiebestimmungen findest du <a href=\"{{ warranty_url }}\">hier<\/a>.<\/p>",
+        "shipping_restrictions_title": "Hinweise für den Versand",
+        "shipping_restrictions_popover": "Aufgrund gesetzlicher Bestimmungen innerhalb der Europäischen Union können Beschränkungen in Menge und in der Wahl des Versanddienstleisters bestehen. Während der Kaufabwicklung werden Ihnen alle für Ihr Versandland geeigneten Optionen angeboten.",
+        "shipping_restrictions_is_dangerous": "Neue Sicherheitsvorschriften für gefährliche Güter können zu Verzögerungen beim Versand führen.",
+        "shipping_restrictions_us_only": "Aufgrund von Versandvorschriften darf iFixit dieses Produkt nur innerhalb der Vereinigten Staaten von Amerika versenden.",
+        "shipping_restrictions_does_not_ship_to_mexico": "Aufgrund von Versandvorschriften darf iFixit dieses Produkt nicht nach Mexiko versenden.",
+        "notify_me": "Benachrichtige mich",
+        "quantity_note_available": "Sofort Lieferbar",
+        "quantity_note_unavailable": "Nur noch {{ amount }} Stück übrig",
+        "quantity_error_note": "So viel haben wir leider nicht auf Lager",
+        "video_title": "",
+        "limit_error_html": "Nur {{ limit }} Stück von einem Artikel erlaubt.",
+        "shipping_restrictions_popover_html": "Aufgrund gesetzlicher Bestimmungen innerhalb der Europäischen Union können Beschränkungen in Menge und in der Wahl des Versanddienstleisters bestehen. Während der Kaufabwicklung werden Ihnen alle für Ihr Versandland geeigneten Optionen angeboten.",
+          "will_not_ship_until": "Wird nach dem {{ date }} versendet",
+          "will_be_in_stock_after": "Wird nach dem {{ date }} auf Lager sein",
+          "only_left": {
+            "one": "Nur noch {{ count }} übrig!",
+            "other": "Nur noch {{ count }} übrig!"
+          },
+          "option_retailfixkitv3withadhesive": "Retail Fix Kit mit Klebestreifen",
+          "option_ifixit-madeintaiwan": "iFixit",
+          "option_fixkitmitiphonestandoffbit": "Fix Kit"
+        },
+        "general": {
+          "related_products": "Wir empfehlen außerdem",
+          "save_html": "Speichern {{ saved_amount }}",
+          "sale_price": "Sonderpreis",
+          "regular_price": "Normaler Preis"
+        }
+    },
+    "gift_cards": {
+      "issued": {
+        "title": "Hier ist Ihre {{ value }} Geschenkkarte für {{ shop }}!",
+        "subtext": "Hier ist Ihre Geschenkkarte!",
+        "disabled": "Deaktiviert",
+        "expired": "Abgelaufen am {{ expiry }}",
+        "active": "Läuft ab am {{ expiry }}",
+        "redeem": "Nutzen Sie an der Kasse diesen Code, um Ihre Geschenkkarte einzulösen",
+        "shop_link": "Einkauf beginnen",
+        "print": "Drucken",
+        "remaining_html": "{{ balance }} übrig",
+        "add_to_apple_wallet": "Hinzufügen zu Apple Wallet",
+        "initial_value": "Geschenkkarten-Betrag: {{ value }}"
+      }
+    },
+    "date_formats": {
+      "month_day_year": "%B %d, %Y"
+    },
+    "checkout": {
+      "codice_fiscale": "Codice Fiscale",
+      "codice_fiscale_desc": "Please enter your Codice Fiscale",
+      "vatId": "Umsatzsteuer Id",
+      "vatIdError": "Bitte eine gültige VatId eingeben oder leer lassen",
+      "company": "Firma",
+      "vatLoginHint": "Für Umsatzsteuerfreie B2B Bestellungen bitte einloggen",
+      "vat_status": {
+        "200": "Die angefragte USt-IdNr. ist gültig.",
+        "201": "Die angefragte USt-IdNr. ist ungültig.",
+        "202": "Die angefragte USt-IdNr. ist ungültig. Sie ist nicht in der Unternehmerdatei des betreffenden EU-Mitgliedstaates registriert.",
+        "203": "Die angefragte USt-IdNr. ist ungültig. Sie ist erst ab dem ... gültig (siehe Feld 'Gueltig_ab').",
+        "204": "Die angefragte USt-IdNr. ist ungültig. Sie war im Zeitraum von ... bis ... gültig (siehe Feld 'Gueltig_ab' und 'Gueltig_bis').",
+        "205": "Ihre Anfrage kann derzeit durch den angefragten EU-Mitgliedstaat oder aus anderen Gründen nicht beantwortet werden. Bitte versuchen Sie es später noch einmal. Bei wiederholten Problemen wenden Sie sich bitte an das Bundeszentralamt für Steuern - Dienstsitz Saarlouis.",
+        "206": "Ihre deutsche USt-IdNr. ist ungültig. Eine Bestätigungsanfrage ist daher nicht möglich. Den Grund hierfür können Sie beim Bundeszentralamt für Steuern - Dienstsitz Saarlouis - erfragen.",
+        "207": "Ihnen wurde die deutsche USt-IdNr. ausschliesslich zu Zwecken der Besteuerung des innergemeinschaftlichen Erwerbs erteilt. Sie sind somit nicht berechtigt, Bestätigungsanfragen zu stellen.",
+        "208": "Für die von Ihnen angefragte USt-IdNr. läuft gerade eine Anfrage von einem anderen Nutzer. Eine Bearbeitung ist daher nicht möglich. Bitte versuchen Sie es später noch einmal.",
+        "209": "Die angefragte USt-IdNr. ist ungültig. Sie entspricht nicht dem Aufbau der für diesen EU-Mitgliedstaat gilt. ( Aufbau der USt-IdNr. aller EU-Länder)",
+        "210": "Die angefragte USt-IdNr. ist ungültig. Sie entspricht nicht den Prüfziffernregeln die für diesen EU-Mitgliedstaat gelten.",
+        "211": "Die angefragte USt-IdNr. ist ungültig. Sie enthält unzulässige Zeichen (wie z.B. Leerzeichen oder Punkt oder Bindestrich usw.).",
+        "212": "Die angefragte USt-IdNr. ist ungültig. Sie enthält ein unzulässiges Länderkennzeichen.",
+        "213": "Die Abfrage einer deutschen USt-IdNr. ist nicht möglich.",
+        "214": "Ihre deutsche USt-IdNr. ist fehlerhaft. Sie beginnt mit 'DE' gefolgt von 9 Ziffern.",
+        "215": "Ihre Anfrage enthält nicht alle notwendigen Angaben für eine einfache Bestätigungsanfrage (Ihre deutsche USt-IdNr. und die ausl. USt-IdNr.).Ihre Anfrage kann deshalb nicht bearbeitet werden.",
+        "216": "Ihre Anfrage enthält nicht alle notwendigen Angaben für eine qualifizierte Bestätigungsanfrage (Ihre deutsche USt-IdNr., die ausl. USt-IdNr., Firmenname einschl. Rechtsform und Ort).Es wurde eine einfache Bestätigungsanfrage durchgeführt mit folgenden Ergebnis:Die angefragte USt-IdNr. ist gültig.",
+        "217": "Bei der Verarbeitung der Daten aus dem angefragten EU-Mitgliedstaat ist ein Fehler aufgetreten. Ihre Anfrage kann deshalb nicht bearbeitet werden.",
+        "218": "Eine qualifizierte Bestätigung ist zur Zeit nicht möglich. Es wurde eine einfache Bestätigungsanfrage mit folgendem Ergebnis durchgeführt: Die angefragte USt-IdNr. ist gültig.",
+        "219": "Bei der Durchführung der qualifizierten Bestätigungsanfrage ist ein Fehler aufgetreten. Es wurde eine einfache Bestätigungsanfrage mit folgendem Ergebnis durchgeführt:Die angefragte USt-IdNr. ist gültig.",
+        "220": "Bei der Anforderung der amtlichen Bestätigungsmitteilung ist ein Fehler aufgetreten. Sie werden kein Schreiben erhalten.",
+        "221": "Die Anfragedaten enthalten nicht alle notwendigen Parameter oder einen ungültigen Datentyp. Weitere Informationen erhalten Sie bei den Hinweisen zum Schnittstelle - Aufruf.",
+        "999": "Eine Bearbeitung Ihrer Anfrage ist zurzeit nicht möglich. Bitte versuchen Sie es später noch einmal."
+      }
+    },
+    "registration": {
+      "form": {
+        "first_name": "Vorname",
+        "last_name": "Nachname",
+        "email": "Email",
+        "company": "Company",
+        "address_line_1": "Adresse",
+        "address_line_2": "Adresse 2",
+        "city": "Stadt",
+        "country": "Land",
+        "state": "Provinz",
+        "zip": "PLZ",
+        "phone": "Telefon",
+        "vat_id": "VAT ID",
+        "website": "What is your business website \/ social media presence? (please share your URL)",
+        "devices": "What phones or devices do you think you will work with most commonly?",
+        "franchise": "Are you part of a larger franchise organization?",
+        "retail": "Do you have a retail store?",
+        "apply": "Apply for wholesale"
+      }
+    },
+    "shopify": {
+      "checkout": {
+        "contact": {
+          "optional_first_name_label": "Vorname",
+          "address1_label": "Straße & Hausnummer",
+          "optional_address2_label": "Adresszusatz"
+        },
+        "marketing": {
+          "accept_marketing_checkbox_label": "Ja, ich möchte über exklusive Aktionen und auf mich zugeschnittene Neuigkeiten von iFixit per E-Mail informiert werden. Dieser Service ist kostenlos und kann jederzeit widerrufen werden. Detaillierte Informationen zum Datenschutz und zu unserem personalisierten Newsletter erhalten Sie in unserer Datenschutzerklärung."
+        }
+      }
+    },
+    "email": {
+     "orders": {
+      "order_confirmation": "Hello {{ customer.first_name }},<br /> Thank you for choosing iFixit EUROPE for your DIY project!<br /> We are preparing the item(s) you ordered for you to pick them up<br /> You can follow your order status by clicking on the button below:",
+      "order_update": "Hello {{ customer.first_name }},<br />New shipping information is available for the following shipped items.You can track the status of your delivery at any time by clicking the button below:",
+      "order_invoice": "Hello tesssst{{ customer.first_name }},<br /> Please find the invoice for your order {{ name }} placed on {{ created_at }} attached <br /> to this message. You will receive a separate message as soon as your order is shipped.<br /> We’d be thrilled to have you back for your next repair project!<br /> "
+    },
+  
+     "shipping": {
+      "shipping_confirmation_greeting": "Hello {{ customer.first_name }},",
+      "shipping_confirmation_text": "We are pleased to inform you that the last items of your order has shipped. You can track the status of your delivery at any time by clicking the button below:"
+     },
+     "button": {
+      "order": "View order",
+      "tracking": "Track order",
+      "invoice": "View invoice"
+
+     },
+     "footer": {
+      "headline": "Connect",
+      "text": "{%capture string_with_newlines %}Tränkestr. 7, 70597 Stuttgart, Germany<br /> Managing Directors: Matthias Mayer, Matthias Huiskens<br /> Register Court: Amtsgericht Stuttgart, HRB 744920{% endcapture%}"
+     },
+     "header": "Follow us & share your project on social media with #iFixit <br />For repair guides go to <br />"
+  }
+}

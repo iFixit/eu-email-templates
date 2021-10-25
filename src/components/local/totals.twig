@@ -269,7 +269,6 @@
         <mj-column>
           <mj-text
             align="right"
-            font-size="16px"
             color="{{ style.color['grey-dark'] }}"
           >
             You saved <span>{% verbatim %}{{ total_discounts | money }}{% endverbatim %}</span>
@@ -305,94 +304,7 @@
       </mj-raw>
     {% endverbatim %}
 
-      <mj-section>
-        <mj-column
-          border-top="1px solid {{ style.color.grey }}"
-          padding-top="20px"
-        >
-          <mj-table>
-            {% verbatim %}
-              {% for transaction in transactions %}
-            {% endverbatim %}
-
-              {# transaction - start #}
-                {% verbatim %}
-                  {% if transaction.status == 'success' and transaction.kind == 'authorization' or transaction.kind == 'sale' %}
-                {% endverbatim %}
-
-                  {% verbatim %}
-                    {% if transaction.payment_details.credit_card_company %}
-                      {% capture transaction_name %}{{ transaction.payment_details.credit_card_company }} <span style="font-size: 14px;">(ending in {{ transaction.payment_details.credit_card_last_four_digits }})</span>{% endcapture %}
-                    {% else %}
-                      {% capture transaction_name %}{{ transaction.gateway_display_name }}{% endcapture %}
-                    {% endif %}
-                  {% endverbatim %}
-
-                  <tr>
-                    <td style="font-size: 16px; color: {{ style.color['grey-dark'] }}; padding: 5px 0;">
-                      {% verbatim %}
-                        {{ transaction_name }}
-                      {% endverbatim %}
-                    </td>
-
-                    <td style="text-align: right; font-size: 16px; font-weight: 700; padding: 5px 0;">
-                      {% verbatim %}
-                        {{ transaction.amount | money }}
-                      {% endverbatim %}
-                    </td>
-                  </tr>
-
-                {% verbatim %}
-                  {% endif %}
-                {% endverbatim %}
-              {# transaction - end #}
-
-              {# refund - start #}
-                {% verbatim %}
-                  {% if transaction.kind == 'refund' %}
-                {% endverbatim %}
-
-                  {% verbatim %}
-                    {% if transaction.payment_details.credit_card_company %}
-                      {% assign refund_method_title = transaction.payment_details.credit_card_company %}
-                    {% else %}
-                      {% assign refund_method_title = transaction.gateway %}
-                    {% endif %}
-                  {% endverbatim %}
-
-                  <tr>
-                    <td style="color: {{ style.color['grey-dark'] }}; padding: 5px 0;">
-                      <span style="font-size: 16px;">
-                        Refund
-                      </span>
-
-                      <br>
-
-                      <span style="font-size: 14px;">
-                        {% verbatim %}
-                          {{ refund_method_title | capitalize }}
-                        {% endverbatim %}
-                      </span>
-                    </td>
-
-                    <td style="text-align: right; font-size: 16px; font-weight: 700; padding: 5px 0;">
-                      {% verbatim %}
-                        - {{ transaction.amount | money }}
-                      {% endverbatim %}
-                    </td>
-                  </tr>
-
-                {% verbatim %}
-                  {% endif %}
-                {% endverbatim %}
-              {# refund - start #}
-
-            {% verbatim %}
-              {% endfor %}
-            {% endverbatim %}
-          </mj-table>
-        </mj-column>
-      </mj-section>
+      
 
     {% verbatim %}
       <mj-raw>

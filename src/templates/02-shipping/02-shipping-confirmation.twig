@@ -10,21 +10,7 @@
 {% block title %}
   {% verbatim %}
     {% capture title %}
-      {% if fulfillment.item_count == item_count %}
-        Your order is on the way
-      {% elsif fulfillment.item_count > 1 %}
-        {% if fulfillment_status == 'fulfilled' %}
-          The last items in your order are on the way
-        {% else %}
-          Some items in your order are on the way
-        {% endif %}
-      {% else %}
-        {% if fulfillment_status == 'fulfilled' %}
-          The last item in your order is on the way
-        {% else %}
-          One item in your order is on the way
-        {% endif %}
-      {% endif %}
+      Your order {{ name }} has been shipped
     {% endcapture %}
   {% endverbatim %}
 
@@ -37,18 +23,38 @@
   {% verbatim %}
     {% capture preview %}
       {% if fulfillment.item_count == item_count %}
-        Your order is on the way. Track your shipment to see the delivery status.
+      <mj-text css-class="nltext">
+        Hello {{ customer.first_name }},<br />
+        We are pleased to inform you that your order has being shipped. You can track the status of your delivery at any time
+        by clicking the button below:
+      </mj-text css-class="nltext">
       {% elsif fulfillment.item_count > 1 %}
         {% if fulfillment_status == 'fulfilled' %}
-          The last items in your order are on the way. Track your shipment to see the delivery status.
+          <mj-text css-class="nltext">
+        Hello {{ customer.first_name }},<br />
+        We are pleased to inform you that the last items of your order has shipped. You can track the status of your delivery at any time
+        by clicking the button below:
+      </mj-text>
         {% else %}
-          Some items in your order are on the way. Track your shipment to see the delivery status.
+          <mj-text css-class="nltext">
+        Hello {{ customer.first_name }},<br />
+        We are pleased to inform you that some items of your order has shipped. You can track the status of your delivery at any time
+        by clicking the button below:
+      </mj-text>
         {% endif %}
       {% else %}
         {% if fulfillment_status == 'fulfilled' %}
-          The last item in your order is on the way. Track your shipment to see the delivery status.
+          <mj-text css-class="nltext">
+        Hello {{ customer.first_name }},<br />
+        We are pleased to inform you that the last item of your order has shipped. You can track the status of your delivery at any time
+        by clicking the button below:
+      </mj-text>
         {% else %}
-          One item in your order is on the way. Track your shipment to see the delivery status.
+          <mj-text css-class="nltext">
+        Hello {{ customer.first_name }},<br />
+        We are pleased to inform you that one item of your order has shipped. You can track the status of your delivery at any time
+        by clicking the button below:
+      </mj-text>
         {% endif %}
       {% endif %}
     {% endcapture %}
@@ -60,9 +66,9 @@
 
 {# content - start #}
 {% block content %}
-  {% include '@components::local/intro-text.twig' with {
-    headline: '{{ title }}',
-    text: '{{ preview }}'
+  {% include '@components::local/intro-text-short.twig' with {
+    headline: '{{ title }}'
+    
   } %}
 
   {% include '@components::local/estimated-delivery.twig' %}
@@ -101,7 +107,7 @@
     </mj-raw>
   {% endverbatim %}
 
-  {% include '@components::local/tracking.twig' %}
+  
 
   {% include '@components::local/headline.twig' with {
     headline: 'Items in this shipment',
@@ -115,10 +121,11 @@
         : '{% for line in fulfillment.fulfillment_line_items %}'
       }}
     </mj-raw>
-
+    
       {% embed '@components::local/product.twig' %}
-        {% block right %}{% endblock %}
+        
       {% endembed %}
+      
 
     <mj-raw>
       {{ development
@@ -127,5 +134,25 @@
       }}
     </mj-raw>
   </mj-wrapper>
+
+  <mj-wrapper padding-bottom="20px">
+  {% verbatim %}
+    <mj-raw>
+      {% if order_status_url %}
+    </mj-raw>
+  {% endverbatim %}
+  
+    {% include '@components::local/actions.twig' with {
+      primary: {
+        url: '{{ fulfillment.tracking_url }}',
+        text: 'Track Package'
+      }
+    } %}
+    {% verbatim %}
+    <mj-raw>
+      {% endif %}
+    </mj-raw>
+  {% endverbatim %}
+</mj-wrapper>
 {% endblock %}
 {# content - end #}
