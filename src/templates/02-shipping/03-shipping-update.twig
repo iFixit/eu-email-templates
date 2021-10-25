@@ -9,7 +9,7 @@
 {# title - start #}
 {% block title %}
   {% verbatim %}
-    {% capture title %}Your shipping status has been updated{% endcapture %}
+    {% capture title %}Updated shipping status for your order {{ name }}{% endcapture %}
   {% endverbatim %}
 
   {{ parent() }}
@@ -19,7 +19,11 @@
 {# preview - start #}
 {% block preview %}
   {% verbatim %}
-    {% capture preview %}The following items have been updated with new shipping information.{% endcapture %}
+    {% capture preview %}
+    Hello {{ customer.first_name }},<br />
+    New shipping information is available for the following shipped items.
+    You can track the status of your delivery at any time by clicking the button below:
+    {% endcapture %}
   {% endverbatim %}
 
   {{ parent() }}
@@ -28,7 +32,7 @@
 
 {# content - start #}
 {% block content %}
-  {% include '@components::local/intro-text.twig' with {
+  {% include '@components::local/intro-text-short.twig' with {
     headline: '{{ title }}',
     text: '{{ preview }}'
   } %}
@@ -67,10 +71,10 @@
     </mj-raw>
   {% endverbatim %}
 
-  {% include '@components::local/tracking.twig' %}
+  
 
   {% include '@components::local/headline.twig' with {
-    headline: 'Items in this shipment',
+    headline: 'Order {{ name }}',
     padding: '20px 0 5px'
   } %}
 
@@ -93,5 +97,33 @@
       }}
     </mj-raw>
   </mj-wrapper>
+
+  {% block payment_method_headline %}{% endblock %}
+  
+
+  {% include '@components::local/customer-information.twig' %}
+
+  {% include '@components::local/tracking.twig' %}
+
+  {% verbatim %}
+    <mj-raw>
+      {% if order_status_url %}
+    </mj-raw>
+  {% endverbatim %}
+
+    {% include '@components::local/actions.twig' with {
+      primary: {
+        url: '{{ fulfillment.tracking_url }}',
+        text: 'Track Package'
+      }
+    } %}
+
+    
+
+    {% verbatim %}
+    <mj-raw>
+      {% endif %}
+    </mj-raw>
+  {% endverbatim %}
 {% endblock %}
 {# content - end #}
