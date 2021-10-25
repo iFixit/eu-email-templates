@@ -1,0 +1,13 @@
+<mj-section padding="{{ padding | default('20px 0') }}">
+  <mj-column>
+    {% block primary_outer %}
+      <mj-button
+        href="{% block primary_url %}{{ primary.url | default('{{ shop.url }}') }}{% endblock %}"
+        >
+        {% block primary_text %}
+          {{ primary.text | default('Visit our store') }}
+        {% endblock %}
+      </mj-button>
+    {% endblock %}
+  </mj-column>
+</mj-section>

@@ -1,0 +1,158 @@
+{% extends '@layouts::base.twig' %}
+
+{#
+ # Email subject
+ # ---
+ # A shipment from order {{ name }} is on the way
+ #}
+
+{# title - start #}
+{% block title %}
+  {% verbatim %}
+    {% capture title %}
+      Your order {{ name }} has been shipped
+    {% endcapture %}
+  {% endverbatim %}
+
+  {{ parent() }}
+{% endblock %}
+{# title - end #}
+
+{# preview - start #}
+{% block preview %}
+  {% verbatim %}
+    {% capture preview %}
+      {% if fulfillment.item_count == item_count %}
+      <mj-text css-class="nltext">
+        Hello {{ customer.first_name }},<br />
+        We are pleased to inform you that your order has being shipped. You can track the status of your delivery at any time
+        by clicking the button below:
+      </mj-text css-class="nltext">
+      {% elsif fulfillment.item_count > 1 %}
+        {% if fulfillment_status == 'fulfilled' %}
+          <mj-text css-class="nltext">
+        Hello {{ customer.first_name }},<br />
+        We are pleased to inform you that the last items of your order has shipped. You can track the status of your delivery at any time
+        by clicking the button below:
+      </mj-text>
+        {% else %}
+          <mj-text css-class="nltext">
+        Hello {{ customer.first_name }},<br />
+        We are pleased to inform you that some items of your order has shipped. You can track the status of your delivery at any time
+        by clicking the button below:
+      </mj-text>
+        {% endif %}
+      {% else %}
+        {% if fulfillment_status == 'fulfilled' %}
+          <mj-text css-class="nltext">
+        Hello {{ customer.first_name }},<br />
+        We are pleased to inform you that the last item of your order has shipped. You can track the status of your delivery at any time
+        by clicking the button below:
+      </mj-text>
+        {% else %}
+          <mj-text css-class="nltext">
+        Hello {{ customer.first_name }},<br />
+        We are pleased to inform you that one item of your order has shipped. You can track the status of your delivery at any time
+        by clicking the button below:
+      </mj-text>
+        {% endif %}
+      {% endif %}
+    {% endcapture %}
+  {% endverbatim %}
+
+  {{ parent() }}
+{% endblock %}
+{# preview - end #}
+
+{# content - start #}
+{% block content %}
+  {% include '@components::local/intro-text-short.twig' with {
+    headline: '{{ title }}'
+    
+  } %}
+
+  {% include '@components::local/estimated-delivery.twig' %}
+
+  {% verbatim %}
+    <mj-raw>
+      {% if order_status_url %}
+    </mj-raw>
+  {% endverbatim %}
+
+    {% include '@components::local/actions.twig' with {
+      primary: {
+        url: '{{ order_status_url }}',
+        text: 'View your order'
+      }
+    } %}
+
+  {% verbatim %}
+    <mj-raw>
+      {% else %}
+    </mj-raw>
+  {% endverbatim %}
+
+    {% embed '@components::local/actions.twig' with {
+      primary: {
+        url: '{{ shop.url }}',
+        text: 'Visit our store'
+      }
+    } %}
+      {% block secondary_outer %}{% endblock %}
+    {% endembed%}
+
+  {% verbatim %}
+    <mj-raw>
+      {% endif %}
+    </mj-raw>
+  {% endverbatim %}
+
+  
+
+  {% include '@components::local/headline.twig' with {
+    headline: 'Items in this shipment',
+    padding: '20px 0 5px'
+  } %}
+
+  <mj-wrapper padding-bottom="20px">
+    <mj-raw>
+      {{ development
+        ? '{% for line in line_items %}{% for i in (1..2) %}'
+        : '{% for line in fulfillment.fulfillment_line_items %}'
+      }}
+    </mj-raw>
+    
+      {% embed '@components::local/product.twig' %}
+        
+      {% endembed %}
+      
+
+    <mj-raw>
+      {{ development
+        ? '{% endfor %}{% endfor %}'
+        : '{% endfor %}'
+      }}
+    </mj-raw>
+  </mj-wrapper>
+
+  <mj-wrapper padding-bottom="20px">
+  {% verbatim %}
+    <mj-raw>
+      {% if order_status_url %}
+    </mj-raw>
+  {% endverbatim %}
+  
+    {% include '@components::local/actions.twig' with {
+      primary: {
+        url: '{{ fulfillment.tracking_url }}',
+        text: 'Track Package'
+      }
+    } %}
+    {% verbatim %}
+    <mj-raw>
+      {% endif %}
+    </mj-raw>
+  {% endverbatim %}
+</mj-wrapper>
+{% endblock %}
+{# content - end #}

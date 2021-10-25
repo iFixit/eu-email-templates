@@ -1,0 +1,36 @@
+<mj-section>
+  <mj-column>
+  {# Ich hab die Topline variable rausgenommen weil ich keine Links einfügen konnte. Evtl. muss diese wieder eingesetzt werden. #}
+    {% block topline_outer %}
+      <mj-text
+        color="{{ style.color['black'] }}"
+        padding-bottom="20px"
+        align="center"
+      >You decided to bust the isolation blues by fixing something—that's great! Inspire others to do so, too, and join our <a href="https://www.ifixit.com/News/36647/join-the-fixathome-challenge">#FixAtHome</a> challenge on <a href="https://twitter.com/iFixit">Twitter</a> and <a href="https://www.instagram.com/ifixit">Instagram</a>.
+        </mj-text>
+    {% endblock %}
+
+    {% block headline_outer %}
+      <mj-text
+        font-size="32px"
+        line-height="2.2"
+        font-weight="400"
+        padding-bottom="20px"
+        align="center"
+      >
+        {% block headline %}
+          {{ headline | default('Headline') }}
+        {% endblock %}
+      </mj-text>
+    {% endblock %}
+
+    {% block text_outer %}
+      <mj-text
+        color="{{ style.color['grey-dark'] }}"
+        align="center"
+      >
+        {% block text %}{{ text | default('Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia optio delectus asperiores architecto cupiditate perferendis aperiam magni veritatis, nulla corrupti?') }}{% endblock %}
+      </mj-text>
+    {% endblock %}
+  </mj-column>
+</mj-section>

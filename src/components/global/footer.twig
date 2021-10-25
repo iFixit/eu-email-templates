@@ -1,0 +1,42 @@
+{% block footer_outer %}
+  <mj-wrapper padding-top="30px">
+    <mj-section
+      border-top="1px solid {{ style.color.grey }}"
+      padding="50px 0"
+    >
+      <mj-group>
+        <mj-column>
+          {% block footer %}
+            <mj-text
+              color="{{ style.color['grey-dark'] }}"
+              align="center"
+            >
+              {% block text %}
+                {{ text | default('Connect')}}
+              {% endblock %}
+            </mj-text>
+            <mj-spacer height="5px" />
+          {% endblock %}
+          <mj-social>
+            <mj-social-element name="facebook" href="https://www.facebook.com/iFixitEU"></mj-social-element>
+            <mj-social-element name="twitter" href="https://twitter.com/ifixit"></mj-social-element>
+            <mj-social-element name="instagram" href="https://www.instagram.com/ifixiteurope/"></mj-social-element>
+          </mj-social>
+          <mj-text
+              align="center"
+              >
+          <a href="http://www.ifixit.com">www.ifixit.com</a>
+          </mj-text>
+          <mj-spacer height="30px" />
+          <mj-text
+            color="{{ style.color['grey-dark'] }}"
+            align="center"
+            > {{ email.orders.order_confirmation }}
+          </mj-text>
+        </mj-column>
+      </mj-group>
+    </mj-section>
+      </mj-column>
+    </mj-section>
+  </mj-wrapper>
+{% endblock %}

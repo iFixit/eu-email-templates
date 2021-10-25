@@ -1,0 +1,72 @@
+{% block delivery_status_outer %}
+{% verbatim %}
+  <mj-raw>
+    {% if fulfillment.tracking_numbers.size == 1 %}
+  </mj-raw>
+{% endverbatim %}
+<mj-wrapper>
+  <mj-section padding="{{ padding | default('0 0 20px') }}">
+    <mj-column>
+      <mj-divider 
+        border-width="1px"
+        border-color="{{ style.color.grey }}"
+        padding-bottom="20px"
+        />
+      <mj-text
+          color="{{ style.color['grey-dark'] }}"
+          align="center"
+        >   {% block delivery_status_headline %} {{ delivery_status_headline | default("You can follow the status of your shipment by clicking the button below:") }} 
+        </mj-text>
+      {% endblock %}
+
+  {% block delivery_status_button %}
+      <mj-text
+        color="{{ style.color['grey-dark'] }}"
+        align="center"
+      >
+        {% verbatim %}
+      <mj-raw>
+        {% if order_status_url %}
+      </mj-raw>
+    {% endverbatim %}
+
+      {% include '@components::local/actions.twig' with {
+        primary: {
+          url: '{{ fulfillment.tracking_url }}',
+          text: 'Track Package'
+        }
+      } %}
+    </mj-text>
+
+
+    {% verbatim %}
+    <mj-raw>
+      {% endif %}
+    </mj-raw>
+  {% endverbatim %}
+
+     
+  {% endblock %}      
+
+   
+
+{% verbatim %}
+  <mj-raw>
+    {% endif %}
+  </mj-raw>
+{% endverbatim %}
+
+    </mj-column>
+  </mj-section>
+  {% endblock %}
+  <mj-section>
+    <mj-column>
+        <mj-text> 
+          {% block delivery_status_bottomline %} 
+              {{ delivery_status_bottomline | default("delivery_status_bottomline test 123") }}
+          {% endblock %}
+                </mj-text>
+  
+      </mj-column>
+    </mj-section>
+  </mj-wrapper>

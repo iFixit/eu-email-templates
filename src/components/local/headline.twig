@@ -1,0 +1,31 @@
+{% block headline_outer %}
+  <mj-section padding="{{ padding | default('0 0 20px') }}">
+    <mj-column>
+      <mj-divider 
+        border-width="1px"
+        border-color="{{ style.color.grey }}"
+        padding-bottom="20px"/>
+      
+      <mj-text font-size="{{ font_size | default('22px') }}"
+                font-weight="{{ font_weight | default('500') }}"
+                align="center"
+                letter-spacing="0.1px"
+                >
+        {% block headline %}
+          {{ headline | default('Headline') }}
+        {% endblock %}
+      </mj-text>
+      <mj-text font-size="{{ font_size | default('17px') }}"
+        align="left"
+        text-transform="uppercase"
+        letter-spacing="0.1px"
+        > 
+          Items ordered
+        </mj-text>
+      <mj-divider 
+        border-width="1px"
+        border-color="{{ style.color.grey }}"
+        padding-bottom="20px"/>
+    </mj-column>
+  </mj-section>
+{% endblock %}
