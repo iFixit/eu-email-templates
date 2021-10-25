@@ -23,6 +23,7 @@ gateway: Visa
 item_count: 2
 fulfillment_status: fulfilled # unfulfilled / partial / fulfilled / pending
 requires_shipping: true
+created_at: 01.01.2021
 shipping_methods:
   -
     title: Generic Shipping

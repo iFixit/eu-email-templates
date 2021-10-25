@@ -1,0 +1,42 @@
+<mj-section>
+  <mj-column>
+    {% block topline_outer %}
+      <mj-text
+        padding="{{ padding | default('0 0 20px') }}"
+        color="{{ style.color['black'] }}"
+        align="center"
+      >
+    {% block topline %}
+          {{ topline | default("Follow us & share your project on social media with #iFixit <br />For repair guides go to") }}
+        {% endblock %}
+        <br />
+        <a href="http://www.ifixit.com">www.ifixit.com</a>
+        </mj-text>
+        
+
+    {% endblock %}
+
+    {% block headline_outer %}
+      <mj-text
+        font-size="32px"
+        font-weight="400"
+        line-height="2.2"
+        padding-bottom="20px"
+        align="center"
+      >
+        {% block headline %}
+          {{ headline | default('Headline') }}
+        {% endblock %}
+      </mj-text>
+    {% endblock %}
+
+    {% block text_outer %}
+      <mj-text
+        color="{{ style.color['grey-dark'] }}"
+        align="center"
+      >
+        {% block text %}{{ text | default('Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia optio delectus asperiores architecto cupiditate perferendis aperiam magni veritatis, nulla corrupti?') }}{% endblock %}
+      </mj-text>
+    {% endblock %}
+  </mj-column>
+</mj-section>

@@ -9,18 +9,19 @@
     <mj-section padding-bottom="30px">
       <mj-column>
         <mj-text
-          font-size="16px"
+          font-size="20px"
           font-weight="500"
           color="{{ style.color['black'] }}"
           padding-bottom="5px"
         >
           {% block payment_method_headline %}
-            {{ payment_method_headline | default('PAYMENT INFORMATION') }}
+            {{ payment_method_headline | default('PAYMENT INFO') }}
           {% endblock %}
         </mj-text>
           <mj-divider 
               border-width="1px"
               border-color="{{ style.color.grey }}"/>
+              padding-bottom="10px"
         {% verbatim %}
           <mj-raw>
             {% for transaction in transactions %}
@@ -34,6 +35,7 @@
             line-height="1.7"
             color="{{ style.color['grey-dark'] }}"
             padding-bottom="5px"
+            padding-top="10px"
           >
             {% block payment_method %}
               {% verbatim %}
@@ -46,8 +48,8 @@
                     height="24"
                     style="vertical-align: text-top; padding-right: 5px;"
                   >
-
-                  ending with {{ transaction.payment_details.credit_card_last_four_digits }} — <strong>{{ transaction.amount | money }}</strong>
+ 
+                  Visa (••••••••••••{{ transaction.payment_details.credit_card_last_four_digits }}) — <strong>{{ transaction.amount | money }}</strong>
                 {% elsif transaction.gateway_display_name == 'Gift card' %}
                   <img
                     src="{{ 'notifications/gift-card.png' | shopify_asset_url }}"
@@ -56,7 +58,7 @@
                     style="vertical-align: text-top; padding-right: 5px;"
                   >
 
-                  ending with {{ transaction.payment_details.gift_card.last_four_characters | upcase }} — <strong>{{ transaction.amount | money }}</strong> <span style="font-size: 14px;">(Gift card balance: {{ transaction.payment_details.gift_card.balance | money }})</span>
+                  ending with {{ transaction.payment_details.gift_card.last_four_characters | upcase }} — <strong>{{ transaction.amount | money }}</strong><br /> <span style="font-size: 14px;">(Gift card balance: {{ transaction.payment_details.gift_card.balance | money }})</span>
                 {% else %}
                   {{ transaction.gateway_display_name }} — <strong>{{ transaction.amount | money }}</strong>
                 {% endif %}

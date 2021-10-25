@@ -2,71 +2,40 @@
   <mj-wrapper padding-top="30px">
     <mj-section
       border-top="1px solid {{ style.color.grey }}"
-      padding="30px 0"
+      padding="50px 0"
     >
-      <mj-column>
-        {% block footer %}
+      <mj-group>
+        <mj-column>
+          {% block footer %}
+            <mj-text
+              color="{{ style.color['grey-dark'] }}"
+              align="center"
+            >
+              {% block text %}
+                {{ text | default('Connect')}}
+              {% endblock %}
+            </mj-text>
+            <mj-spacer height="5px" />
+          {% endblock %}
+          <mj-social>
+            <mj-social-element name="facebook" href="https://www.facebook.com/iFixitEU"></mj-social-element>
+            <mj-social-element name="twitter" href="https://twitter.com/ifixit"></mj-social-element>
+            <mj-social-element name="instagram" href="https://www.instagram.com/ifixiteurope/"></mj-social-element>
+          </mj-social>
+          <mj-text
+              align="center"
+              >
+          <a href="http://www.ifixit.com">www.ifixit.com</a>
+          </mj-text>
+          <mj-spacer height="30px" />
           <mj-text
             color="{{ style.color['grey-dark'] }}"
-            font-size="16px"
-            line-height="1.7"
             align="center"
-          >
-            {% block text %}
-              {{ text | default('Connect')}}
-            {% endblock %}
+            > {{ email.orders.order_confirmation }}
           </mj-text>
-        {% endblock %}
-      </mj-column>
+        </mj-column>
+      </mj-group>
     </mj-section>
-    <mj-section
-          padding="30px 0"  
-          >
-      <mj-column>
-        <mj-text
-          font-size="16px"
-            line-height="1.7"
-            align="center"
-            >
-        </mj-text>
-      </mj-column>
-    </mj-section>
-    <mj-section
-            padding="30px 0"
-            >
-      <mj-column>
-        <mj-text
-            font-size="16px"
-            line-height="1.7"
-            align="center"
-            >
-        This is text
-        </mj-text>
-      </mj-column>
-    </mj-section>
-    <mj-section
-             border-top="1px solid {{ style.color.grey }}"
-            padding="30px 0"
-            >
-      <mj-column>
-        <mj-text
-            font-size="16px"
-            line-height="1.7"
-            align="center"
-            >
-        </mj-text>
-      </mj-column>
-    </mj-section>
-    <mj-section
-            padding="30px 0"
-            >
-      <mj-column>
-        <mj-text
-            font-size="16px"
-            line-height="1.7"
-            align="center"
-            >
-        </mj-text>
       </mj-column>
     </mj-section>
   </mj-wrapper>
